@@ -30,7 +30,7 @@ for i in range(0,101):
         continue
 
 
-print(seqeunce)
-print(dice)
+print("Sequence: " + seqeunce)
+print("States  : " + dice)
 v = Viterbi()
-print(v.Decode(seqeunce))
+print("Decoding: " + v.Decode(seqeunce))
