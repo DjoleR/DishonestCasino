@@ -2,8 +2,9 @@ from Die import FairDie
 from Die import LoadedDie
 
 class Viterbi(object):
-    """Viterbi algorithm class"""
-
+    """ Viterbi algorithm """
+    
+    # Decoding algorithm
     def Decode(slef, sequence):
         n = len(sequence)
         matrix = []
@@ -17,8 +18,8 @@ class Viterbi(object):
             matrix[0][i] = FairDie.probabiltyOfRolling(float(sequence[i])) * max(matrix[0][i - 1] * (1 - FairDie.switchProability), matrix[1][i - 1] * LoadedDie.switchProability)
             matrix[1][i] = LoadedDie.probabiltyOfRolling(float(sequence[i])) * max(matrix[0][i - 1] * FairDie.switchProability, matrix[1][i - 1] * (1 - LoadedDie.switchProability))
 
-        #print(matrix[0])
-        #print(matrix[1])
+        # print(matrix[0])
+        # print(matrix[1])
 
         # Backtracking the solution
         # Find the highest probability and follow back the path with keeping the probability highest
@@ -29,6 +30,6 @@ class Viterbi(object):
                 path += 'F'
             else:
                 path += 'L'
-
             n -= 1
+
         return path[::-1]
