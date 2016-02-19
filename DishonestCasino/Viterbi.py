@@ -5,7 +5,7 @@ class Viterbi(object):
     """ Viterbi algorithm """
     
     # Decoding algorithm
-    def Decode(slef, sequence):
+    def Decode(self, sequence):
         n = len(sequence)
         matrix = []
         matrix.append([0] * n)
